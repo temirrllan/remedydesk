@@ -16,7 +16,7 @@ This is a new project for the [PayPal AI Hackathon](https://paypalaihackathon.de
 
 ## Requirements
 
-- Node.js 20+ (no npm dependencies).
+- Node.js 20.6+ (no npm dependencies).
 - [Ollama](https://ollama.com/) with `qwen2.5:7b-instruct` installed and running.
 - A PayPal Developer account with a **Sandbox** app's client ID and secret for the payment flow. Use sandbox credentials only.
 - A PayPal sandbox buyer account to approve the test payment. PayPal creates a personal test account alongside the business test account in the Developer Dashboard.
@@ -33,11 +33,10 @@ In another terminal:
 ```sh
 cp .env.example .env
 # Edit .env locally: PAYPAL_CLIENT_ID and PAYPAL_CLIENT_SECRET from your sandbox app.
-set -a; source .env; set +a
-npm start
+node --env-file=.env server.mjs
 ```
 
-Open [http://127.0.0.1:4180/](http://127.0.0.1:4180/). To try the AI before obtaining PayPal credentials, start the app without `.env`; payment controls will stay disabled and visibly explain why.
+On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp`. Open [http://127.0.0.1:4180/](http://127.0.0.1:4180/). To try the AI before obtaining PayPal credentials, run `npm start` without `.env`; payment controls will stay disabled and visibly explain why.
 
 ## Judge walkthrough
 
