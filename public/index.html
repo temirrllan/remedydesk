@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f1">
+  <title>RemedyDesk — service recovery, with proof</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">R</span><span>RemedyDesk</span></div>
+      <span class="env"><span class="env-dot"></span> PayPal Sandbox · Local prototype</span>
+    </header>
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Cases">
+        <div class="sidebar-intro"><span class="eyebrow">SERVICE RECOVERY</span><h1>Make it right,<br>with a reason.</h1><p>AI finds the impact. Policy sets the amount. You approve the refund.</p></div>
+        <div class="section-line"><h2>Cases</h2><span class="count" id="case-count">—</span></div>
+        <nav id="case-list" aria-label="Sample cases"></nav>
+        <div class="sidebar-bottom"><strong>Demo workspace</strong><p>These cases and payments are synthetic. Sandbox transactions do not move real money.</p></div>
+      </aside>
+      <main id="main" class="main" tabindex="-1"><div class="loading">Loading cases…</div></main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
