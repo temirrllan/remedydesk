@@ -2,7 +2,7 @@
 
 **A service-recovery desk for indie software teams.** A local AI model reads an incident report, quotes the specific evidence behind an impact classification, and a fixed policy computes a suggested partial refund. A human confirms the action; PayPal Sandbox processes the original test payment and the refund.
 
-This is a new project for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com/). It is a local prototype using synthetic cases and sandbox money only.
+This is a new project for the [PayPal AI Hackathon](https://paypalaihackathon.devpost.com/). It is a local prototype using synthetic cases and sandbox money only. The [source code is public on GitHub](https://github.com/temirrllan/remedydesk).
 
 ## What works now
 
@@ -79,7 +79,7 @@ PayPal credentials remain on the server. All PayPal API calls use `https://api-m
 - [x] Functional local application and AI analysis.
 - [x] PayPal Sandbox API integration implemented.
 - [x] PayPal Sandbox end-to-end payment and partial refund verified.
-- [ ] Public GitHub repo with MIT license.
+- [x] [Public GitHub repo](https://github.com/temirrllan/remedydesk) with MIT license.
 - [ ] Public YouTube demo under three minutes.
 - [ ] English Devpost description and final submission.
 
