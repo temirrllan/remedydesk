@@ -10,6 +10,7 @@ This is a new project for the [PayPal AI Hackathon](https://paypalaihackathon.de
 - Ollama `qwen2.5:7b-instruct` analysis with strict JSON output and exact-quote validation. An invented quote is rejected.
 - Server-side policy: minor 5%, major 15%, critical 25% of the original payment, in integer cents. The model cannot set the amount.
 - PayPal Sandbox OAuth, Orders v2 create/capture and Payments v2 partial refund adapters, with stable idempotency keys.
+- End-to-end Sandbox checkout and partial refund verified on 28 October 2026: a $49.00 test payment was captured and a $12.25 refund returned `COMPLETED` from PayPal's refund API. No real money was involved.
 - Refund blocked until a captured payment matches the case amount and currency; one refund per case.
 - Responsive local dashboard and activity log.
 
@@ -18,7 +19,7 @@ This is a new project for the [PayPal AI Hackathon](https://paypalaihackathon.de
 - Node.js 20+ (no npm dependencies).
 - [Ollama](https://ollama.com/) with `qwen2.5:7b-instruct` installed and running.
 - A PayPal Developer account with a **Sandbox** app's client ID and secret for the payment flow. Use sandbox credentials only.
-- A PayPal sandbox buyer account to approve the test payment.
+- A PayPal sandbox buyer account to approve the test payment. PayPal creates a personal test account alongside the business test account in the Developer Dashboard.
 
 ## Run
 
@@ -49,6 +50,12 @@ Open [http://127.0.0.1:4180/](http://127.0.0.1:4180/). To try the AI before obta
 
 For a clean repeat, stop the server and delete `data/store.json`. That file is local and ignored by Git.
 
+## Verified Sandbox run
+
+The full flow was tested with a personal Sandbox buyer and a separate Sandbox merchant app. PayPal returned a completed capture for the $49.00 sample payment, then its refund API independently reported a completed $12.25 partial refund in USD. The dashboard also blocks a second refund for the same case. [Screenshot](docs/sandbox-refund.png).
+
+These are mock transactions. To reproduce the payment and refund, create your own free [PayPal Developer Sandbox accounts](https://developer.paypal.com/sandbox-testing/accounts/) and configure your own credentials in `.env`. Do not commit credentials or test-account passwords.
+
 ## Architecture
 
 ```text
@@ -65,13 +72,13 @@ PayPal credentials remain on the server. All PayPal API calls use `https://api-m
 - Synthetic incidents and customer accounts only. No real customer data or production payments.
 - The service-recovery rates are illustrative and not financial or legal advice.
 - No merchant authentication, webhook verification, multi-user roles or production database. Do not expose the local server publicly.
-- End-to-end PayPal sandbox capture/refund requires the user to configure their own sandbox account. Unit tests use a fake HTTP transport and do not claim a real PayPal transaction.
+- The included automated PayPal adapter test uses a fake HTTP transport; the separate Sandbox run described above verifies the live test environment. Reproduction requires your own Sandbox credentials.
 
 ## Hackathon checklist
 
 - [x] Functional local application and AI analysis.
 - [x] PayPal Sandbox API integration implemented.
-- [ ] PayPal Sandbox end-to-end payment and partial refund verified.
+- [x] PayPal Sandbox end-to-end payment and partial refund verified.
 - [ ] Public GitHub repo with MIT license.
 - [ ] Public YouTube demo under three minutes.
 - [ ] English Devpost description and final submission.
