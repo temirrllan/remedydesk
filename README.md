@@ -79,8 +79,9 @@ PayPal credentials remain on the server. All PayPal API calls use `https://api-m
 - [x] PayPal Sandbox API integration implemented.
 - [x] PayPal Sandbox end-to-end payment and partial refund verified.
 - [x] [Public GitHub repo](https://github.com/temirrllan/remedydesk) with MIT license.
-- [ ] Public YouTube demo under three minutes.
-- [ ] English Devpost description and final submission.
+- [x] [Public YouTube demo](https://youtu.be/W3oCONSQmx4) under three minutes.
+- [x] English Devpost description and required project information saved.
+- [ ] Final Devpost submission.
 
 The [official rules](https://paypalaihackathon.devpost.com/rules) require a functional demo, public source with a visible open-source license, and a public YouTube video under three minutes. The submission deadline is **12 November 2026 at 12:00 Pacific Standard Time**.
 
